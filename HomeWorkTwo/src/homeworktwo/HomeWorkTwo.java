@@ -57,13 +57,15 @@ public class HomeWorkTwo {
         // init ints
         sum = 0;
 
-        // find sum, min, max, avg of even numbers
-        // convert this to array for sorting
+        // sort arraylist
         Collections.sort(retInt);
+        
+        // get sum of even numbers
         for (Object num : retInt) {
             sum += (int) num;
         }
 
+        // find min, max, avg of even numbers
         avg = (float)sum / retInt.size();
         min = (int)retInt.get(0);
         max = (int)retInt.get(retInt.size() - 1);
