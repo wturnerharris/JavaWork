@@ -14,19 +14,18 @@ import java.util.Scanner;
  * @author Wesley Turner-Harris
  */
 public class HomeWorkTwo {
+    public static Scanner kb = new Scanner(System.in);
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner kb = new Scanner(System.in);
         String retStr;
         String oddNum = "";
         int tmpInt, sum, min, max;
         float avg;
         ArrayList retInt = new ArrayList();
-        
-        System.out.println("What is your name?");
+        System.out.printf("What is your name?%n");
         retStr = kb.nextLine();
         System.out.printf("Your name in uppercase: %s%n"
             + "Your name in lowercase: %s%n"
@@ -36,11 +35,11 @@ public class HomeWorkTwo {
             retStr.toLowerCase(), 
             retStr.replace(" ", "").length() 
         );
-        System.out.println("Now, let's do some number stuff.\n"
-                + "Give five numbers, and press enter after each one.");
+        System.out.printf("Now, let's do some number stuff.%n"
+                + "Give five numbers, and press enter after each one.%n");
         for( int i = 0; i < 5; i++ ){
             // store tmp num
-            tmpInt = kb.nextInt();
+            tmpInt = getNextInteger();
             
             // add even numbers to the list
             if ( tmpInt % 2 == 0 ) 
@@ -74,4 +73,14 @@ public class HomeWorkTwo {
                 + "and the sum is %d.%n", min, max, avg, sum);
     }
     
+    public static int getNextInteger(){
+        try{
+            return Integer.parseInt(kb.nextLine());
+        } catch(NumberFormatException E){
+            System.out.printf("You dope! That was not an "
+                    + "integer. We'll say this one is 0, "
+                    + "but enter a whole number, dude.%n");
+            return 0;
+        }
+    }
 }
